@@ -1,0 +1,23 @@
+.login {
+    min-height: 100vh;
+  }
+  
+  .bg-image {
+    background-image: url("../../assets/images/logos/main-logo.png");
+    background-size: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+   
+  }
+  
+  .login-heading {
+    font-weight: 300;
+  }
+  
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    background-color: #009EFB;
+    border-color: #009EFB;
+  }

@@ -1,0 +1,24 @@
+<div style="text-align: center;" >
+    <img src="assets/images/icons/user.png">
+        <h3 style="display:inline-block;">{{diplomee.nom}} {{diplomee.prenom}}</h3>
+    <div class="info">
+        <ul>
+            <li> <b>Sexe:</b>  {{diplomee.sexe}}</li>
+            <li> <b>Date de naissance:</b>  {{diplomee.dateNaiss}}</li>
+            <li> <b>Lieu de naissance:</b>  {{diplomee.lieuNaiss}}</li>
+            <li> <b>Diplome:</b>  {{diplome.nom}}</li>
+            <li> <b>Spécialité:</b>  {{specialite.nom}}</li>        
+            <li> <b>Promotion:</b>  {{diplomee.promotion}}</li>
+            <li> <b>Session:</b>  {{diplomee.session}}</li>
+            <li> <b>Secteur de travail:</b>  {{diplomee.travail}}</li>
+            <li> <b>Email:</b>  {{diplomee.email}}</li>
+            <li> <b>Numéro de téléphone:</b>  {{diplomee.numTel}}</li>
+        </ul>
+    </div>
+    <button *ngIf="demandeAjout" type="button" class="btn btn-info" (click)="accepterAjout()">Confirmer</button>
+    <button *ngIf="demandeMaj" type="button" class="btn btn-info" (click)="accepterMaj()">Confirmer</button>
+    <button *ngIf="!(demandeAjout || demandeMaj)" type="button" class="btn btn-info" (click)="modifier()" routerLink="/component/edit-diplomee">Modifier</button>
+    <button *ngIf="demandeAjout" type="button" class="btn btn-danger" (click)="rejeterAjout()">Rejeter</button> 
+    <button *ngIf="demandeMaj" type="button" class="btn btn-danger" (click)="rejeterMaj()">Rejeter</button>    
+    </div>
+    

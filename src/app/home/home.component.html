@@ -1,0 +1,27 @@
+<div >
+    <div class="p-4">
+        <div class="container"> 
+            <ul>
+                <li *ngFor="let diplome of diplomes"> <button class="btn btn-light" (click)="getSpecialite(diplome.id)">{{diplome.nom}}</button>
+                    <div *ngFor="let specialite of specialites" >
+                        <ul *ngIf="(specialite.diplome===diplome.id)">
+                            <li> <button class="btn btn-light" (click)="getPromotion(specialite.id)">{{specialite.nom}}</button>
+                                <div *ngFor="let promo of promotions">
+                                    <ul *ngIf="(specialite.diplome===diplome.id)&&(specialite.id===idDiplome)">
+                                        <li> <button class="btn btn-light" (click)="getDiplomee(promo)">{{promo}}</button></li>
+                                            <div *ngFor="let diplomee of diplomees">
+                                                <ul *ngIf="(diplomee.specialite===idDiplome)&&(diplomee.promotion===promo)">
+                                                    <li> <button class="btn btn-light" (click)="getIdDiplome(diplomee.id)" routerLink="/component/info-diplomee">{{diplomee.nom}} {{diplomee.prenom}}</button></li>
+                                                </ul>
+                                            </div>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+    
+            </ul>
+        </div>
+    </div>
+    </div>

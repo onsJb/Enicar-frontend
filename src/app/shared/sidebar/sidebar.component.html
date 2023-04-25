@@ -1,0 +1,33 @@
+<nav class="sidebar-nav">
+    <br>
+    <ul id="sidebarnav">
+        <!-- First level menu -->
+        <span *ngIf="!user">
+            <li class="sidebar-item" [class.active]="showMenu === sidebarnavItem.title" *ngFor="let sidebarnavItem of sidebarnavItemsUser"
+            [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'" >
+            <div class="nav-small-cap" *ngIf="sidebarnavItem.extralink === true">{{sidebarnavItem.title}}</div>
+            <a class="sidebar-link waves-effect waves-dark" [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
+                [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink;" (click)="addExpandClass(sidebarnavItem.title)"
+                [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
+                <i [ngClass]="[sidebarnavItem.icon]"></i>
+                <span class="hide-menu">{{sidebarnavItem.title}}</span>
+            </a>
+        </li>   
+        </span>
+        <span *ngIf="user">
+            <li class="sidebar-item" [class.active]="showMenu === sidebarnavItem.title" *ngFor="let sidebarnavItem of sidebarnavItemsAdmin"
+            [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'" >
+            <div class="nav-small-cap" *ngIf="sidebarnavItem.extralink === true">{{sidebarnavItem.title}}</div>
+            <a class="sidebar-link waves-effect waves-dark" [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
+                [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink;" (click)="addExpandClass(sidebarnavItem.title)"
+                [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
+                <i [ngClass]="[sidebarnavItem.icon]"></i>
+                <span class="hide-menu">{{sidebarnavItem.title}}</span>
+            </a>
+        </li>   
+        </span>
+            
+              
+        
+    </ul>
+</nav>

@@ -1,0 +1,30 @@
+<h1>Demandes de mise à jour diplômé</h1>
+<br>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 20%">ID Diplômé</th>
+            <th style="width: 20%">Travail</th>
+            <th style="width: 20%">Numéro Tel</th>
+            <th style="width: 20%">E-mail</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let demande of demandes">
+            <td>{{demande.idDiplomee}}</td>
+            <td>{{demande.travail}}</td>
+            <td>{{demande.numTel}}</td>
+            <td>{{demande.email}}</td>
+            <td><button class="btn btn-info" (click)="afficher(demande)" routerLink="/component/info-diplomee" >voir détails</button>
+            </td>
+        </tr> 
+    </tbody>
+<br>
+    <span style="font-weight: bold;" id="alert"></span>
+<br><br>
+</table>
+
+

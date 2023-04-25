@@ -1,0 +1,37 @@
+<!-- ============================================================== -->
+<!-- Right side toggle and nav items -->
+<!-- ============================================================== -->
+<div >
+  <ul class="navbar-nav float-end">
+    <!-- ============================================================== -->
+    <!-- Search -->
+    <!-- ============================================================== -->
+    <li placement="bottom-end" style=" margin-right: 30px;"  >
+      <a class="ms-2" style="color:white;" routerLink="/component/search" >
+        <i class="bi bi-search" style="color:white;"></i>
+        Recherche</a>
+    </li>
+    <!-- ============================================================== -->
+    <!-- User profile -->
+    <!-- ============================================================== -->
+    <li placement="bottom-end" style="color:white; margin-right: 30px;" *ngIf="user">
+      <i class="bi bi-person-circle"></i>
+      <span class="ms-2">{{username}}</span>
+    </li>
+    <li placement="bottom-end" style="color:white; margin-right: 20px;" *ngIf="user">
+      <a class="ms-2" style="color:white;" (click)="logout()" routerLink="" >
+        <i class="bi bi-box-arrow-right"></i>
+        Déconnexion</a>
+    </li>
+    <li placement="bottom-end" style="color:white; margin-right: 20px;" *ngIf="!user">
+      <a class="ms-2" style="color:white;" routerLink="/login" >
+        <i class="bi bi-box-arrow-in-left"></i>
+        Connexion</a>
+    </li>
+
+    <!-- ============================================================== -->
+    <!-- User profile and search -->
+    <!-- ============================================================== -->
+  </ul>
+  
+</div>

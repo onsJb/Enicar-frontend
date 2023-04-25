@@ -1,0 +1,62 @@
+<!-- <a routerLink="/component/home">
+  <img style="margin-left:30px ; margin-top: 20px;"
+        src="assets/images/icons/back.png"
+        alt="back"
+        class="dark-logo"
+        width="50"
+        height="50"
+      />
+</a> -->
+<span placement="bottom-end" style=" margin-right: 30px;"  >
+  
+  <a class="ms-2" routerLink="/component/home" style="font-size: x-large; font-weight: bold;">
+    <img style="margin-left:30px ; margin-top: 20px;"
+        src="assets/images/icons/back.png"
+        alt="back"
+        class="dark-logo"
+        width="50"
+        height="50"
+      />
+    </a>
+</span>
+
+
+<div class="container-fluid ps-md-0" style="background-color: white;" >
+    <div class="row g-0">
+      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+      <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-8 mx-auto">
+                <app-alert></app-alert>
+                <h3 class="login-heading mb-4">Bienvenue !</h3>
+                <!-- Sign In Form -->
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" [(ngModel)]="user.username" id="floatingInput" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
+                    <label for="floatingInput">Username</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" [(ngModel)]="user.password" id="floatingPassword" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                   </div>
+                    <label for="floatingPassword">Mot de passe</label>
+                  </div>
+  
+                  <div class="d-grid">
+                    <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Se connecter</button>
+                  </div>
+  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

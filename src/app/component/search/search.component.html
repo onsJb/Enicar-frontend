@@ -1,0 +1,59 @@
+<div class="card" style="width: 40%; margin:auto"  >
+    <div class="card-header" style="display:inline-flex;">
+        <img style="margin-left:30px ;"
+        src="assets/images/icons/search.png"
+        alt="search"
+        class="dark-logo"
+        width="50"
+        height="50"
+      />
+    <h1 style="margin-left:30px ;">Recherche</h1>
+    </div>
+    
+    <div class="card-body">
+        <form [formGroup]="form" >
+
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" formControlName="nom" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" />
+                <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                    <div *ngIf="f.nom.errors.required">saisir nom</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input type="text" formControlName="prenom" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }" />
+                <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                    <div *ngIf="f.prenom.errors.required">saisir prénom</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="sexe">Sexe</label>
+                <select id="sexe" formControlName="sexe" [ngClass]="{ 'is-invalid': submitted && f.sexe.errors }" class="form-control">
+                    <option *ngFor="let s of sexes" value="{{s}}">{{s}}</option>
+                </select>
+                <div *ngIf="submitted && f.sexe.errors" class="invalid-feedback">
+                    <div *ngIf="f.sexe.errors.required">saisir sexe</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dateNaiss">Date de naissance</label>
+                <input type="date" id="dateNaiss" formControlName="dateNaiss" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dateNaiss.errors }">
+                <div *ngIf="submitted && f.dateNaiss.errors" class="invalid-feedback">
+                    <div *ngIf="f.dateNaiss.errors.required">saisir date de naissance</div>
+                </div>
+            </div>
+            
+        <br>
+            <div class="form-group" style="text-align: center;">
+                <button [disabled]="loading" class="btn btn-light" (click)="search()">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Confirmer
+                </button>
+                <a routerLink="/" class="btn btn-light" style="margin-left: 10px;">Annuler</a>
+            </div>
+        </form>
+    </div>

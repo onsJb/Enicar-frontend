@@ -1,0 +1,28 @@
+ul {
+    list-style: none;
+}
+
+.info {
+    background-color: rgba(235, 232, 232, 0.637);
+    box-sizing: content-box;
+    width: fit-content;
+    margin: auto;
+    border-radius: 5px;
+    padding-right: 35px;
+
+}
+
+img {
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+    display:inline-block;
+}
+
+li {
+    padding: 10px;
+}
+
+button {
+    margin: 5px;
+}

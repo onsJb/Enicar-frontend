@@ -1,0 +1,101 @@
+<div class="card" style="width: 40%; margin:auto"  >
+    <div class="card-header" style="display:inline-flex;">
+        <img style="margin-left:30px ;"
+        src="assets/images/icons/add-user.png"
+        alt="transfer"
+        class="dark-logo"
+        width="50"
+        height="50"
+      />
+    <h1 style="margin-left:30px ;">Modifier diplômé</h1>
+    </div>
+    
+    <div class="card-body">
+        <form [formGroup]="form" >
+
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" formControlName="nom" disabled class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input type="text" formControlName="prenom" class="form-control" disabled />
+            </div>
+
+            <div class="form-group">
+                <label for="sexe">Sexe</label>
+                <select id="sexe" formControlName="sexe" disabled class="form-control">
+                    <option *ngFor="let s of sexes" value="{{s}}">{{s}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dateNaiss">Date de naissance</label>
+                <input type="date" id="dateNaiss" disabled formControlName="dateNaiss" class="form-control" >
+            </div>
+
+            <div class="form-group">
+                <label for="lieuNaiss">Lieu de naissance</label>
+                <input type="text" formControlName="lieuNaiss" disabled class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="promotion">Promotion</label>
+                <input type="text" formControlName="promotion" disabled class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="diplome">Diplôme</label>
+                <select id="diplome" formControlName="diplome" disabled class="form-control" >
+                    <option> </option>
+                    <option *ngFor="let d of diplomes" value="{{d.nom}}">{{d.nom}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="specialite">Spécialité</label>
+                <select id="specialite" formControlName="specialite" disabled class="form-control">
+                    <option> </option>
+                    <option *ngFor="let s of specialites" value="{{s.nom}}">{{s.nom}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="session">Session</label>
+                <select id="session" formControlName="session" disabled class="form-control">
+                    <option *ngFor="let s of sessions" value="{{s}}">{{s}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="travail">Secteur de travail</label>
+                <select id="travail" formControlName="travail" class="form-control" [(ngModel)]="newDiplomee.travail" >
+                    <option *ngFor="let s of secteurs" value="{{s}}">{{s}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="text" formControlName="email" class="form-control" [(ngModel)]="newDiplomee.email"/>
+            </div>
+
+            <div class="form-group">
+                <label for="numTel">Numéro de téléphone</label>
+                <input type="text" formControlName="numTel" class="form-control" [(ngModel)]="newDiplomee.numTel"/>
+            </div>
+            
+        <br>
+            <div class="form-group" style="text-align: center;">
+                <button *ngIf="user" [disabled]="loading" class="btn btn-light" (click)="save()">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Confirmer
+                </button>
+                <button *ngIf="!user" [disabled]="loading" class="btn btn-light" (click)="send()">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Envoyer
+                </button>
+                <a routerLink="/" class="btn btn-light" style="margin-left: 10px;">Annuler</a>
+            </div>
+        </form>
+    </div>
